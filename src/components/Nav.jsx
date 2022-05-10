@@ -1,23 +1,23 @@
-
+import classes  from './Nav.module.css'
 
 const Nav = () => {
   return (
-    <nav className='nav'>
+    <nav className={classes.nav}>
       <ul>
         <li>
-          <a href='#'>Profile</a>
+          <a href='#' className={classes.item}>Profile</a>
         </li>
         <li>
-          <a href='#'>Message</a>
+          <a href='#' className={classes.item}>Message</a>
         </li>
         <li>
-          <a href='#'>News</a>
+          <a href='#' className={classes.item}>News</a>
         </li>
         <li>
-          <a href='#'>Music</a>
+          <a href='#' className={classes.item}>Music</a>
         </li>
         <li>
-          <a href='#'>Setting</a>
+          <a href='#' className={classes.item}>Setting</a>
         </li>
       </ul>
     </nav>

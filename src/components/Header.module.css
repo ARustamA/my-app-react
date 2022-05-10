@@ -1,0 +1,8 @@
+.header {
+  grid-area: header;
+
+}
+
+.img__logo {
+  width: 200px;
+}
