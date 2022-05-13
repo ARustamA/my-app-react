@@ -1,10 +1,15 @@
 .nav {
   grid-area: nav;
+  padding: 20px;
 }
 
-.nav__item{
-  color:darkblue;
+.item{
+  color:blue;
 }
-.nav__item:hover{
+
+.active {
+  color:blueviolet;
+}
+.item:hover{
  color:brown;
 }
