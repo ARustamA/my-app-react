@@ -2,22 +2,22 @@ import classes  from './Nav.module.css'
 
 const Nav = () => {
   return (
-    <nav className={classes.nav}>
+    <nav className = {classes.nav}>
       <ul>
         <li>
-          <a href='#' className={classes.item}>Profile</a>
+          <a href ='/profile' className = {classes.item}>Profile</a>
         </li>
         <li>
-          <a href='#' className={classes.item}>Message</a>
+          <a href ='/dialogs' className = {classes.item}>Message</a>
         </li>
         <li>
-          <a href='#' className={classes.item}>News</a>
+          <a href = '/news' className = {classes.item}>News</a>
         </li>
         <li>
-          <a href='#' className={classes.item}>Music</a>
+          <a href = '/music' className = {classes.item}>Music</a>
         </li>
         <li>
-          <a href='#' className={classes.item}>Setting</a>
+          <a href = '/setting' className = {classes.item}>Setting</a>
         </li>
       </ul>
     </nav>
