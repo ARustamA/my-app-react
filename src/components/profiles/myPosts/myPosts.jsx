@@ -1,22 +1,26 @@
-import cla from './myPosts.module.css'
+import style from './myPosts.module.css'
 import Post from './post/Post';
 
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+  let PostsElement = props.posts.map( (Posts) => <Post message={Posts.message} likesCount={Posts.likesCount}/>)
+
   return (
-    <div posts = {cla.content}>
-    
-      <div>my posts
+    <div posts={style.content}>
+
+      <div className={style.item}>
+        <h3>My posts</h3>
         <div>
-          <textarea></textarea>
+          <div>
+            <textarea></textarea>
+          </div>
           <a href="#" className="button">Add post</a>
         </div>
 
-        <div className = {cla.posts}>
-          <Post message = 'hi, how are you'  likesCount = '5'/>
-          <Post message = 'it is my first post' likesCount = '15'/>
-          <Post />
-          <Post />          
+        <div  className={style.posts}>
+          {PostsElement}
+
         </div>
       </div>
 
