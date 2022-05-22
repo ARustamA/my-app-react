@@ -22,4 +22,8 @@
    padding: 10px;
 }
 
-.message {}
+.messageAva {
+   width: 15%;
+   height: 10%;
+   margin: 0 10px;
+}

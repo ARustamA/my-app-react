@@ -1,13 +1,15 @@
 import style from './../Dialogs.module.css'
 
-const Message = (props) => {
+const Avatar = (props) => {
 
    return (
+
       <div className={style.dialog}>
-         {props.messageText}
+         {props.avatarData}
 
       </div>
    )
+   
 }
 
-export default Message;
+export default Avatar;
