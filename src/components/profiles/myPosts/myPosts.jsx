@@ -23,7 +23,7 @@ const MyPosts = (props) => {
         <h3>My posts</h3>
         <div>
           <div>
-            <textarea ref={newPostElement}></textarea>
+            <textarea ref={newPostElement} />
           </div>
           <button onClick={() => props.addPost(newPostElement.current.value)} 
             type='button' className={style.button}>Add post</button>

@@ -4,8 +4,9 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { addPost } from './redux/state';
 
-export let reRenderEntireTree = (state) => {
    const root = ReactDOM.createRoot(document.getElementById('root'));
+export let reRenderEntireTree = (state) => {
+  
    root.render(
       <React.StrictMode>
          <BrowserRouter>

@@ -10,6 +10,11 @@ let state = {
          { id: 5, message: 'goodbye', likesCount: 1 },
          { id: 6, message: 'I do not understand you', likesCount: 3 },
       ],
+   newPostData:{
+      NewPost:[
+         
+      ],
+   },
 
    },
    dialogsPage: {
@@ -47,7 +52,7 @@ export let addPost = (postMessage) => {
    let newPost = {
       id: 5,
       message: postMessage,
-      likesCount: 0,
+      likesCount: 0, 
    }
 
    state.profilePage.PostData.push(newPost);
