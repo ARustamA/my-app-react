@@ -11,7 +11,7 @@ let state = {
          { id: 6, message: 'I do not understand you', likesCount: 3 },
       ],
 
-      newPostText: 'Asya'
+      newPostText: ''
 
    },
    dialogsPage: {

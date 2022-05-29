@@ -11,6 +11,12 @@ a {
   text-decoration: none;
 }
 
+textarea {
+	outline: none;
+  overflow: auto;
+  resize: none;
+}
+
 .app-wrapper {
   display: grid;
   width: 1200px;

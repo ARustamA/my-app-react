@@ -27,7 +27,14 @@ const Dialogs = (props) => {
          <div className={style.messagesItem}>
             {messageElements}
          </div>
+
+         <div>
+            <textarea placeholder='your message' />
+            <button type='button' className={style.button}>Send message</button>
+         </div>
       </div>
+
+      
    )
 }
 
