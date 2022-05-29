@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import style  from './Nav.module.css'
 
-const Nav = () => {
+const Nav = (props) => {
   return (
     <nav className = {style.nav}>
       <ul>
@@ -20,6 +20,16 @@ const Nav = () => {
         <li>
           <NavLink to= '/setting' className = {navData => navData.isActive ? style.active : style.item}>Setting</NavLink>
         </li>
+      </ul>
+      <ul>
+      <li>
+          <NavLink to= '/Friends' className = {navData => navData.isActive ? style.active : style.item}>Friends</NavLink>
+      </li>
+      <li>
+      <NavLink to= '#' className = {navData => navData.isActive ? style.active : style.item}>a</NavLink>
+      
+      </li>
+
       </ul>
     </nav>
   )

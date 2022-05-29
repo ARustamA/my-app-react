@@ -26,6 +26,7 @@ textarea {
   grid-template-areas:
     "header header"
     "nav content"
+    
   ;
 
   grid-template-rows: 0.2fr 1fr;
@@ -36,4 +37,5 @@ textarea {
 
 .app-wrapper-content {
   grid-area: content;
+  
 }

@@ -7,36 +7,43 @@ import { Routes, Route } from "react-router-dom";
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Setting from './components/Setting/Setting';
+import Friends from './components/Friends/Friends';
 
 const App = (props) => {
 
   return (
     <div className='app-wrapper'>
       <Header />
-      <Nav />
+      <Nav state={props.state.dialogsPage}/>
+
       <div className='app-wrapper-content'>
         <Routes>
-          <Route path='/dialogs/*' 
+          <Route path='/dialogs/*'
             element={<Dialogs state={props.state.dialogsPage} />} />
 
-          <Route path='/profile' 
-            element={<Profile 
-                              profilePage={props.state.profilePage} 
-                              addPost={props.addPost}
-                              updateNewPostText={props.updateNewPostText}
-                    />} />
+          <Route path='/profile'
+            element={<Profile
+              profilePage={props.state.profilePage}
+              addPost={props.addPost}
+              updateNewPostText={props.updateNewPostText}
+            />} />
 
-          <Route path='/news' 
+          <Route path='/news'
             element={<News />} />
 
-          <Route path='/music' 
+          <Route path='/music'
             element={<Music />} />
 
-          <Route path='/setting' 
+          <Route path='/setting'
             element={<Setting />} />
 
+          <Route path='/Friends'
+            element={<Friends state={props.state.dialogsPage}/>} />
+
         </Routes>
+
       </div>
+
     </div>
 
 

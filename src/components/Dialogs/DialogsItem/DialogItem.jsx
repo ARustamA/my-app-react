@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import style from './../Dialogs.module.css'
 
 const DialogItem = (props) => {
-   let path = 'dialogs/' + props.id;
+   let path = props.name;
 
    return (
       <div className={style.dialog + ' ' + style.active}>

@@ -29,8 +29,8 @@
 
 .button {
    border-radius: .6rem;
-   width: 150px;
-   height: 30px;
+   padding: 5px;
+   margin-left: 10px;
    text-decoration: none;
    color: #c4506d;
    text-align: center;
