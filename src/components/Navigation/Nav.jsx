@@ -23,7 +23,7 @@ const Nav = (props) => {
       </ul>
       <ul>
       <li>
-          <NavLink to= '/Friends' className = {navData => navData.isActive ? style.active : style.item}>Friends</NavLink>
+          <NavLink to= '/friends' className = {navData => navData.isActive ? style.active : style.item}>Friends</NavLink>
       </li>
       <li>
       <NavLink to= '#' className = {navData => navData.isActive ? style.active : style.item}>a</NavLink>

@@ -1,69 +1,78 @@
-import { reRenderEntireTree } from "../Render";
+let store =
+{
+   _state: {
+      profilePage: {
+         PostData: [
+            { id: 1, message: 'hi, I miss you', likesCount: 4 },
+            { id: 2, message: 'winter os coming', likesCount: 5 },
+            { id: 3, message: 'hi, I need my phone', likesCount: 6 },
+            { id: 4, message: 'Yo yo yo', likesCount: 2 },
+            { id: 5, message: 'goodbye', likesCount: 1 },
+            { id: 6, message: 'I do not understand you', likesCount: 3 },
+         ],
 
-let state = {
-   profilePage: {
-      PostData: [
-         { id: 1, message: 'hi, I miss you', likesCount: 4 },
-         { id: 2, message: 'winter os coming', likesCount: 5 },
-         { id: 3, message: 'hi, I need my phone', likesCount: 6 },
-         { id: 4, message: 'Yo yo yo', likesCount: 2 },
-         { id: 5, message: 'goodbye', likesCount: 1 },
-         { id: 6, message: 'I do not understand you', likesCount: 3 },
-      ],
+         newPostText: ''
 
-      newPostText: ''
+      },
+      dialogsPage: {
+         dialogsData: [
+            { id: 1, name: 'Aisy' },
+            { id: 2, name: 'Ruslan' },
+            { id: 3, name: 'Vlad' },
+            { id: 4, name: 'Zulf' },
+            { id: 5, name: 'Fidan' },
+            { id: 6, name: 'Vildan' },
+         ],
+         messageData: [
+            { id: 1, message: 'hi, I miss you' },
+            { id: 2, message: 'winter os coming' },
+            { id: 3, message: 'hi, I need my phone' },
+            { id: 4, message: 'Yo yo yo' },
+            { id: 5, message: 'goodbye' },
+            { id: 6, message: 'I do not understand you' },
+         ],
+         avaData: [
+            { id: 1, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
+            { id: 2, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
+            { id: 3, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
+            { id: 4, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
+            { id: 5, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
+            { id: 6, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
 
+         ],
+      },
+   
    },
-   dialogsPage: {
-      dialogsData: [
-         { id: 1, name: 'Aisy' },
-         { id: 2, name: 'Ruslan' },
-         { id: 3, name: 'Vlad' },
-         { id: 4, name: 'Zulf' },
-         { id: 5, name: 'Fidan' },
-         { id: 6, name: 'Vildan' },
-      ],
-      messageData: [
-         { id: 1, message: 'hi, I miss you' },
-         { id: 2, message: 'winter os coming' },
-         { id: 3, message: 'hi, I need my phone' },
-         { id: 4, message: 'Yo yo yo' },
-         { id: 5, message: 'goodbye' },
-         { id: 6, message: 'I do not understand you' },
-      ],
-      avaData: [
-         { id: 1, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
-         { id: 2, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
-         { id: 3, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
-         { id: 4, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
-         { id: 5, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
-         { id: 6, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
-        
-      ],
+
+   getState() {
+      return this._state;
+   },
+   reRenderEntireTree(){ 
+      console.log('state changed')
    },
 
+   addPost() {
+      debugger
+      let newPost = {
+         id: 5,
+         message: this._state.profilePage.newPostText,
+         likesCount: 0,
+      }
+      this._state.profilePage.PostData.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._reRenderEntireTree(this._state);
+   },
+
+   updateNewPostText(newText) {
+      this._state.profilePage.newPostText = newText;
+      this._reRenderEntireTree(this._state);
+   },
+
+   subscribe(observer) { 
+      this._reRenderEntireTree = observer; 
+   },
 }
 
-export let addPost = () => {
-   
-   let newPost = {
-      id: 5,
-      message: state.profilePage.newPostText,
-      likesCount: 0, 
-   }
+export default store;
 
-   state.profilePage.PostData.push(newPost);
-   state.profilePage.newPostText ='';
-   reRenderEntireTree(state);
-}
-
-export let updateNewPostText = (newText) => {
-   
-   state.profilePage.newPostText = newText;
-   
-   reRenderEntireTree(state);
-}
-
-
-
-export default state;
+window.store = store;

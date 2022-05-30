@@ -37,7 +37,7 @@ const App = (props) => {
           <Route path='/setting'
             element={<Setting />} />
 
-          <Route path='/Friends'
+          <Route path='/friends'
             element={<Friends state={props.state.dialogsPage}/>} />
 
         </Routes>
