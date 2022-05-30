@@ -30,7 +30,7 @@ const Dialogs = (props) => {
 
          <div>
             <textarea placeholder='your message' />
-            <button type='button' className={style.button}>Send message</button>
+            <a type='button' className={style.button}>Send message</a>
          </div>
       </div>
 
