@@ -2,7 +2,7 @@ import style from './Dialogs.module.css'
 import DialogItem from './DialogsItem/DialogItem'
 import Message from './Message/Message'
 import Avatar from './Avatar/Avatar'
-import {updateNewMessageTextCreator, sendMessageCreator } from '../../redux/state'
+import {updateNewMessageTextCreator, sendMessageCreator } from '../../redux/dialogs-reducer'
 
 
 
