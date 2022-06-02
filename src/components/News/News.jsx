@@ -1,8 +1,8 @@
-import cla from './News.module.css'
+import style from './News.module.css'
 
 const News = (props) => {
    return(
-      <div className='{cla.header}'>News</div>
+      <div className={style.header}>News</div>
    )
 }
 

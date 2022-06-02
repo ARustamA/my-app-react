@@ -1,8 +1,8 @@
-import cla from './Setting.module.css'
+import style from './Setting.module.css'
 
 const Setting = (props) => {
    return(
-      <div className='{cla.header}'>Setting</div>
+      <div className={style.header}>Setting</div>
    )
 }
 

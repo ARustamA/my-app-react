@@ -1,8 +1,8 @@
-import cla from './Music.module.css'
+import style from './Music.module.css'
 
 const Music = (props) => {
    return(
-      <div className='{cla.header}'>Music</div>
+      <div className={style.header}>Music</div>
    )
 }
 
