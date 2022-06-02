@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_MESSAGE = 'UPDATE-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let store =
 {
@@ -15,6 +17,7 @@ let store =
          ],
 
          newPostText: ''
+         
 
       },
       dialogsPage: {
@@ -43,6 +46,8 @@ let store =
             { id: 6, ava: "<img src='https://media.kasperskydaily.com/wp-content/uploads/sites/92/2016/07/06021844/social-networking-rules-featured.jpg' //>" },
 
          ],
+
+         newMessageText: '',
       },
    
    },
@@ -60,8 +65,7 @@ let store =
 
 
    _addPost() {
-      debugger
-      let newPost = {
+         let newPost = {
          id: 5,
          message: this._state.profilePage.newPostText,
          likesCount: 0,
@@ -75,22 +79,41 @@ let store =
       this._reRenderEntireTree(this._state);
    },
 
+   _updateNewMessageText(messageText){
+      this._state.dialogsPage.newMessageText = messageText;
+      this._reRenderEntireTree(this._state);
+   },
+
+   _sendMessage(){
+      let text = this._state.dialogsPage.newMessageText;
+      this._state.dialogsPage.newMessageText = '';
+      this._state.dialogsPage.messageData.push({id: 6, message: text});
+      this._reRenderEntireTree(this._state);
+   },
+
    
    dispatch(action){
-      if (action.type === 'ADD-POST'){
+      if (action.type === ADD_POST){
          this._addPost()
-      } else if (action.type === 'UPDATE-NEW-POST-TEXT'){
+      } else if (action.type === UPDATE_POST){
          this._updateNewPostText(action.newText);
+      } else if (action.type === UPDATE_MESSAGE){
+         this._updateNewMessageText(action.messageText)
+      } else if (action.type === SEND_MESSAGE){
+         this._sendMessage()
       }
    },
 
-
+   
 }; 
 
 export const addPostActionCreator = () => ({ type: ADD_POST })
 
 export const UpdateNewPostCreator = (text) => ({ type: UPDATE_POST, newText:text })
 
+export const updateNewPostTextCreator = (text) => ({ type: UPDATE_MESSAGE, messageText: text })
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
 
 export default store;
 
