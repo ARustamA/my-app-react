@@ -111,7 +111,7 @@ export const addPostActionCreator = () => ({ type: ADD_POST })
 
 export const UpdateNewPostCreator = (text) => ({ type: UPDATE_POST, newText:text })
 
-export const updateNewPostTextCreator = (text) => ({ type: UPDATE_MESSAGE, messageText: text })
+export const updateNewMessageTextCreator = (text) => ({ type: UPDATE_MESSAGE, messageText: text })
 
 export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
 
