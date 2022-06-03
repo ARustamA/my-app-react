@@ -1,55 +1,27 @@
-import style from './MyPosts.module.css'
-import Post from './post/Post';
 import React from 'react';
 import {addPostActionCreator, updateNewPostCreator } from '../../../redux/profile-reducer';
+import MyPosts from './MyPosts';
 
 
-const MyPosts = (props) => {
+const MyPostsContainer = (props) => {
 
-  let PostsElement = props.posts.map((Posts) => <Post message={Posts.message} likesCount={Posts.likesCount} />)
-  let newPostElement = React.createRef();
+  let state = props.store.getState();
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreator());
+  let OnAddPost = () => {
+    props.store.dispatch(addPostActionCreator());
   }
 
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
+  let onPostChange = (text) => {
     let action = updateNewPostCreator(text);
-    props.dispatch(action);
+    props.store.dispatch(action);
   }
-
 
   return (
-    <div posts={style.content}>
-
-      <div className={style.item}>
-        <h3>My posts</h3>
-        <div>
-
-          <div>
-            <textarea
-              onChange={onPostChange}
-              placeholder='leave your mark'
-              ref={newPostElement}
-              value={props.newPostText}
-            />
-          </div>
-
-          <a onClick={addPost}
-            // onClick={() => addPost(newPostElement.current.value)}
-            type='button' className={style.button}>Add post
-          </a>
-        </div>
-
-        <div className={style.posts}>
-          {PostsElement}
-
-        </div>
-      </div>
-
-    </div>
+    <MyPosts  addPost={OnAddPost} 
+              onPostChange={onPostChange}
+              newPostText={state.profilePage.newPostText}
+              PostData={state.profilePage.PostData}/>
   )
 }
 
-export default MyPosts;
+export default MyPostsContainer;

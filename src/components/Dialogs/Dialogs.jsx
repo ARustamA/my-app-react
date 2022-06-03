@@ -9,24 +9,26 @@ import {updateNewMessageTextCreator, sendMessageCreator } from '../../redux/dial
 
 const Dialogs = (props) => {
 
-   let dialogElements = props.state.dialogsData.map(
+   let state = props.dialogsPage;
+
+   let dialogElements = state.dialogsData.map(
       (dialog) => <DialogItem name={dialog.name} id={dialog.id} />)
 
-   let avaElement = props.state.avaData.map(
+   let avaElement = state.avaData.map(
       (avatar) => <Avatar ava={avatar.ava} id={avatar.id} />)
 
-   let messageElements = props.state.messageData.map(
+   let messageElements = state.messageData.map(
       (messageArray) => <Message messageText={messageArray.message} id={messageArray.id} />)
 
-   let newMessageText = props.state.newMessageText;
+   let newMessageText = state.newMessageText;
 
    let onClickSendMessage = () => {
-      props.dispatch( sendMessageCreator())
+      props.sendMessage();
    }
    
    let onNewMessageChange = (event) => {
       let textFromEvent = event.target.value;
-      props.dispatch( updateNewMessageTextCreator(textFromEvent) )
+      props.updateNewMessageText(textFromEvent);
    }
 
    return (
