@@ -2,7 +2,7 @@ import style from './Dialogs.module.css'
 import DialogItem from './DialogsItem/DialogItem'
 import Message from './Message/Message'
 import Avatar from './Avatar/Avatar'
-import {updateNewMessageTextCreator, sendMessageCreator } from '../../redux/dialogs-reducer'
+
 
 
 
@@ -12,13 +12,13 @@ const Dialogs = (props) => {
    let state = props.dialogsPage;
 
    let dialogElements = state.dialogsData.map(
-      (dialog) => <DialogItem name={dialog.name} id={dialog.id} />)
+      (dialog) => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />)
 
    let avaElement = state.avaData.map(
-      (avatar) => <Avatar ava={avatar.ava} id={avatar.id} />)
+      (avatar) => <Avatar ava={avatar.ava} key={avatar.id} id={avatar.id} />)
 
    let messageElements = state.messageData.map(
-      (messageArray) => <Message messageText={messageArray.message} id={messageArray.id} />)
+      (messageArray) => <Message messageText={messageArray.message} key={messageArray.id}  id={messageArray.id} />)
 
    let newMessageText = state.newMessageText;
 
