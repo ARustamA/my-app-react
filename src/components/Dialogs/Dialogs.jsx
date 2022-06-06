@@ -2,31 +2,33 @@ import style from './Dialogs.module.css'
 import DialogItem from './DialogsItem/DialogItem'
 import Message from './Message/Message'
 import Avatar from './Avatar/Avatar'
-import {updateNewMessageTextCreator, sendMessageCreator } from '../../redux/dialogs-reducer'
+
 
 
 
 
 const Dialogs = (props) => {
 
-   let dialogElements = props.state.dialogsData.map(
-      (dialog) => <DialogItem name={dialog.name} id={dialog.id} />)
+   let state = props.dialogsPage;
 
-   let avaElement = props.state.avaData.map(
-      (avatar) => <Avatar ava={avatar.ava} id={avatar.id} />)
+   let dialogElements = state.dialogsData.map(
+      (dialog) => <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />)
 
-   let messageElements = props.state.messageData.map(
-      (messageArray) => <Message messageText={messageArray.message} id={messageArray.id} />)
+   let avaElement = state.avaData.map(
+      (avatar) => <Avatar ava={avatar.ava} key={avatar.id} id={avatar.id} />)
 
-   let newMessageText = props.state.newMessageText;
+   let messageElements = state.messageData.map(
+      (messageArray) => <Message messageText={messageArray.message} key={messageArray.id}  id={messageArray.id} />)
+
+   let newMessageText = state.newMessageText;
 
    let onClickSendMessage = () => {
-      props.dispatch( sendMessageCreator())
+      props.sendMessage();
    }
    
    let onNewMessageChange = (event) => {
       let textFromEvent = event.target.value;
-      props.dispatch( updateNewMessageTextCreator(textFromEvent) )
+      props.updateNewMessageText(textFromEvent);
    }
 
    return (

@@ -15,28 +15,50 @@ let initialState =
    newPostText: '',
 };
 
-const profileReduce = (state = initialState, action) =>{
-
-   if (action.type === ADD_POST){
-      let newPost = {
-         id: 5,
-         message: state.newPostText,
-         likesCount: 0,
-      }
-      state.PostData.push(newPost);
-      state.newPostText = '';
-
-   } else if (action.type === UPDATE_POST){
-      state.newPostText = action.newText;
+const profileReduce = (state = initialState, action) => {
+ 
+   switch (action.type) {
+      case ADD_POST: {
+         
+         let newPost = {
+            id: 6,
+            message: state.newPostText,
+            likesCount: 5
+         };
+         return {    ...state,
+                     PostData: [...state.PostData, newPost],
+                     newPostText: ''
+         }}
+      case UPDATE_POST: {
+         return {    ...state,
+                  newPostText: action.newPostText
+         }}
+      default:
+         return state
    }
-
-   return state;
 }
+   //    if (action.type === ADD_POST){
+   //       let newPost = {
+   //          id: 5,
+   //          message: state.newPostText,
+   //          likesCount: 0,
+   //       }
+   //       let copyState = {...state}
+   //       copyState.PostData = [...state.PostData]
+   //       copyState.PostData.push(newPost)
+   //       copyState.newPostText = ''
+
+   //    } else if (action.type === UPDATE_POST){
+   //       let copyState = { ...state }
+   //       copyState.newText = action.newText;
+   //    }
+
+   //    return state;
+   // }
+
+   export const addPostActionCreator = () => ({ type: ADD_POST })
+
+   export const updateNewPostCreator = (text) => ({ type: UPDATE_POST, newText: text })
 
 
-export const addPostActionCreator = () => ({ type: ADD_POST })
-
-export const UpdateNewPostCreator = (text) => ({ type: UPDATE_POST, newText:text })
-
-
-export default profileReduce;
+   export default profileReduce

@@ -31,18 +31,27 @@ let initialState = {
 
 const dialogsReduce = (state = initialState, action) =>{
 
-   if (action.type === UPDATE_MESSAGE){
-      state.newMessageText = action.messageText;
-
-   } else if (action.type === SEND_MESSAGE){
-      let text = state.newMessageText;
-      state.newMessageText = '';
-      state.messageData.push({id: 6, message: text});
-   }
-
-   return state;
+   switch (action.type) {
+      case UPDATE_MESSAGE: {
+         return {
+            ...state,
+            newMessageText: action.messageText
+         }
+   } 
+      case SEND_MESSAGE: {
+         let text = state.newMessageText;   
+         return {
+               ...state,
+               newMessageText: '',
+               messageData: [...state.messageData, {id: 6, message: text}]
+               
+         }
+      }
+   
+   default:
+         return state
+      }
 }
-
 export const updateNewMessageTextCreator = (text) => ({ type: UPDATE_MESSAGE, messageText: text })
 
 export const sendMessageCreator = () => ({ type: SEND_MESSAGE })

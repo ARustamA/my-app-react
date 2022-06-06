@@ -1,5 +1,5 @@
-// import cla from './Profile.module.css'
-import MyPosts from './myPosts/myPosts'
+
+import MyPostsContainer from './myPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
@@ -7,9 +7,7 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts  posts={props.profilePage.PostData} 
-                newPostText={props.profilePage.newPostText}
-                dispatch={props.dispatch}
+      <MyPostsContainer   store={props.store}
       />
       
     </div>
