@@ -5,7 +5,7 @@ let initialState =
 {
    PostData: [
       { id: 1, message: 'hi, I miss you', likesCount: 4 },
-      { id: 2, message: 'winter os coming', likesCount: 5 },
+      { id: 2, message: 'winter is coming', likesCount: 5 },
       { id: 3, message: 'hi, I need my phone', likesCount: 6 },
       { id: 4, message: 'Yo yo yo', likesCount: 2 },
       { id: 5, message: 'goodbye', likesCount: 1 },
@@ -16,7 +16,7 @@ let initialState =
 };
 
 const profileReduce = (state = initialState, action) => {
- 
+debugger
    switch (action.type) {
       case ADD_POST: {
          
@@ -31,7 +31,7 @@ const profileReduce = (state = initialState, action) => {
          }}
       case UPDATE_POST: {
          return {    ...state,
-                  newPostText: action.newPostText
+                  newPostText: action.newText
          }}
       default:
          return state

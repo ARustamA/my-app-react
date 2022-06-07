@@ -15,7 +15,7 @@ const Nav = (props) => {
           <NavLink to= '/news' className = {navData => navData.isActive ? style.active : style.item}>News</NavLink>
         </li>
         <li>
-          <NavLink to= '/music' className = {navData => navData.isActive ? style.active : style.item}>Music</NavLink>
+          <NavLink to= '/users' className = {navData => navData.isActive ? style.active : style.item}>Users</NavLink>
         </li>
         <li>
           <NavLink to= '/setting' className = {navData => navData.isActive ? style.active : style.item}>Setting</NavLink>

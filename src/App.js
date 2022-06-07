@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Nav from './components/Navigation/Nav';
 import { Routes, Route } from "react-router-dom";
 import News from './components/News/News';
-import Music from './components/Music/Music';
+import Music from './components/Users/Users';
 import Setting from './components/Setting/Setting';
 import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -29,7 +29,7 @@ const App = (props) => {
           <Route path='/news'
             element={<News />} />
 
-          <Route path='/music'
+          <Route path='/users'
             element={<Music />} />
 
           <Route path='/setting'

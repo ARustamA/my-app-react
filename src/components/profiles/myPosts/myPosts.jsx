@@ -6,7 +6,8 @@ import React from 'react';
 
 const MyPosts = (props) => {
 
-  let PostsElement = props.PostData.map((Posts) => <Post message={Posts.message} likesCount={Posts.likesCount} key={Posts.id}/>)
+  let PostsElement = props.PostData.map((Posts) => 
+  <Post message={Posts.message} likesCount={Posts.likesCount} key={Posts.id}/>)
   let newPostElement = React.createRef();
 
   let addPost = () => {
@@ -17,15 +18,12 @@ const MyPosts = (props) => {
     let text = newPostElement.current.value;
     props.onPostChange(text);
   }
-
-
   return (
     <div posts={style.content}>
 
       <div className={style.item}>
         <h3>My posts</h3>
         <div>
-
           <div>
             <textarea
               onChange={onPostChange}
