@@ -18,14 +18,14 @@ const Dialogs = (props) => {
       (avatar) => <Avatar ava={avatar.ava} key={avatar.id} id={avatar.id} />)
 
    let messageElements = state.messageData.map(
-      (messageArray) => <Message messageText={messageArray.message} key={messageArray.id}  id={messageArray.id} />)
+      (messageArray) => <Message messageText={messageArray.message} key={messageArray.id} id={messageArray.id} />)
 
    let newMessageText = state.newMessageText;
 
    let onClickSendMessage = () => {
       props.sendMessage();
    }
-   
+
    let onNewMessageChange = (event) => {
       let textFromEvent = event.target.value;
       props.updateNewMessageText(textFromEvent);
@@ -35,23 +35,26 @@ const Dialogs = (props) => {
 
       <div className={style.dialogs}>
          <div className={style.dialogsItem}>
-            {avaElement}
-            {dialogElements}
-         </div>
-      <div>
-         <div className={style.messagesItem}>
-            {messageElements}
-         </div>
-
-         
-            <textarea   placeholder='Your message'
-                        value={newMessageText}
-                        onChange={ onNewMessageChange } />
-            <a type='button'
+            
+            <div>
+               {avaElement}
+               {dialogElements}
+            </div>
+            <div>
+               {messageElements}
+               </div>            
+            <div className={style.writeArea}>  
+               <textarea placeholder='Your message'
+               value={newMessageText}
+               onChange={onNewMessageChange} />
+               <a type='button'
                className={style.button}
-               onClick={ onClickSendMessage }>
+               onClick={onClickSendMessage}>
                Send message   </a>
-      </div>
+               </div>
+         </div>
+            
+         
       </div>
 
 

@@ -1,22 +1,22 @@
-import './App.css';
+import style from './App.module.css';
 import Profile from './components/profiles/Profile';
 import Header from './components/Header/Header';
 import Nav from './components/Navigation/Nav';
 import { Routes, Route } from "react-router-dom";
 import News from './components/News/News';
-import Music from './components/Users/Users';
 import Setting from './components/Setting/Setting';
 import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = (props) => {
 
   return (
-    <div className='app-wrapper'>
+    <div className={style.appWrapper}>
       <Header />
       <Nav state={props.store.getState()}/>
 
-      <div className='app-wrapper-content'>
+      <div className={style.wrapperContent}>
         <Routes>
           <Route path='/dialogs/*'
             element={<DialogsContainer store={props.store}/>} />
@@ -30,7 +30,7 @@ const App = (props) => {
             element={<News />} />
 
           <Route path='/users'
-            element={<Music />} />
+            element={<UsersContainer />} />
 
           <Route path='/setting'
             element={<Setting />} />

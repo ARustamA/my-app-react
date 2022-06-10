@@ -17,11 +17,12 @@ textarea {
   resize: none;
 }
 
-.app-wrapper {
+.appWrapper {
   display: grid;
   width: 1200px;
   margin: 0 auto;
-  background-color: rgb(143, 194, 248);
+  background-color: rgb(255, 255, 255);
+  
 
   grid-template-areas:
     "header header"
@@ -35,7 +36,7 @@ textarea {
   
 }
 
-.app-wrapper-content {
+.wrapperContent {
   grid-area: content;
   
 }

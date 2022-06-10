@@ -1,33 +1,52 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST = 'UPDATE-NEW-POST-TEXT';
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
+const SET_USERS = 'SET_USERS';
 
-let initialState =
-{
-   PostData: [
-      { id: 1, message: 'hi, I miss you', likesCount: 4 },
-      { id: 2, message: 'winter is coming', likesCount: 5 },
-      { id: 3, message: 'hi, I need my phone', likesCount: 6 },
-      { id: 4, message: 'Yo yo yo', likesCount: 2 },
-      { id: 5, message: 'goodbye', likesCount: 1 },
-      { id: 6, message: 'I do not understand you', likesCount: 3 },
+let initialState = {
+
+   users: [
+      { id: 1, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png', 
+         followed: true, fullName: 'Aisy',    usersStatus:'hi, I miss you', location: "Ufa"},
+      { id: 2, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
+         followed: true, fullName: 'Ruslan',   usersStatus:'winter is coming', location:  "Ufa"},
+      { id: 3, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
+         followed: true, fullName: 'Vlad',    usersStatus:'hi, I need my phone', location:  "Ufa"},
+      { id: 4, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
+         followed: true, fullName: 'Zulf',    usersStatus:'Yo yo yo', location:  "Ufa"},
+      { id: 5, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
+         followed: false, fullName: 'Fidan',   usersStatus:'goodbye', location:  "Ufa"},
+      { id: 6, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
+         followed: false, fullName: 'Vildan',  usersStatus:'I do not understand you', location:  "Ufa"},
    ],
 
-   newPostText: '',
+   
 };
 
 const usersReduce = (state = initialState, action) => {
 debugger
    switch (action.type) {
-      case ADD_POST: {
-         
-      
-         return {   
+      case FOLLOW: {
+      return  {...state, 
+                  users: state.users.map( (user) => {
+                     if(user.id === action.userId){
+                        return {...user, followed:  true}
+                     }
+                     return user
+                  } )
+      }}
+      case UNFOLLOW: {
+         return  {...state, 
+            users: state.users.map( (user) => {
+               if(user.id === action.userId){
+                  return {...user, followed: false}
+               }
+               return user
+            } )
+      }}
+      case SET_USERS: {
+         return {...state, users: [ ...state.users, ...action.users]}
 
-         }}
-      case UPDATE_POST: {
-         return {    
-
-         }}
+      }
 
       default:
          return state
@@ -35,9 +54,10 @@ debugger
 }
 
 
-   export const addPostActionCreator = () => ({ type: ADD_POST })
+   export const followACreator = (userId) => ({ type: FOLLOW, userId})
 
-   export const updateNewPostCreator = (text) => ({ type: UPDATE_POST, newText: text })
+   export const unFollowACreator = (userId) => ({ type: UNFOLLOW, userId })
 
+   export const setUsersACreator = (userId) => ({ type: SET_USERS, userId })
 
    export default usersReduce

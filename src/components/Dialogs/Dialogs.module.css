@@ -1,11 +1,16 @@
 .dialogs {
-   display: grid;
-   grid-template-columns: 2fr 10fr;
+  
 }
 
 .dialogsItem {
    padding: 10px;
    color: blue;
+   display: grid;
+   grid-template-columns: 2fr 3fr 4fr;
+}
+
+.writeArea{
+
 }
 
 .dialogsItem .active {

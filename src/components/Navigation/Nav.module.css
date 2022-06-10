@@ -1,14 +1,25 @@
 .nav {
   grid-area: nav;
   /* margin: 20px; */
+  background-color: rgb(143, 194, 248);
 }
 
 .item{
-  color:blue;
+  color:rgb(8, 8, 224);
+  background-color: rgb(161, 207, 248);
+  margin: 5px;
+  border-radius: 1rem;
+  display: inline-block;
+  border-color: rgb(226, 226, 237);
+  border: 1px;
 }
 
 .active {
+  display: flex;
   color:blueviolet;
+  font-size: 18px;
+  flex-direction: column;
+  
 }
 .item:hover{
  color:brown;

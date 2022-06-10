@@ -2,11 +2,13 @@ import { combineReducers, legacy_createStore } from 'redux';
 import profileReduce from './profile-reducer'
 import dialogsReduce from './dialogs-reducer'
 import sidebarReduce from './sidebar-reducer';
+import usersReduce from './users-reducer';
 
 let state = combineReducers({
    profilePage: profileReduce,
    dialogsPage: dialogsReduce,
    sidebarData: sidebarReduce,
+   usersPage:   usersReduce,
    
 });
 

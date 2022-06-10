@@ -23,7 +23,7 @@ import {connect} from 'react-redux'
 //               PostData={state.profilePage.PostData}/>
 //   )
 // }
-debugger
+
 let mapStateToProps = (state)=> {
   return {
     PostData: state.profilePage.PostData,
