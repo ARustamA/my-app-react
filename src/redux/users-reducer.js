@@ -5,25 +5,19 @@ const SET_USERS = 'SET_USERS';
 let initialState = {
 
    users: [
-      { id: 1, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png', 
-         followed: true, fullName: 'Aisy',    usersStatus:'hi, I miss you', location: "Ufa"},
-      { id: 2, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
-         followed: true, fullName: 'Ruslan',   usersStatus:'winter is coming', location:  "Ufa"},
-      { id: 3, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
-         followed: true, fullName: 'Vlad',    usersStatus:'hi, I need my phone', location:  "Ufa"},
-      { id: 4, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
-         followed: true, fullName: 'Zulf',    usersStatus:'Yo yo yo', location:  "Ufa"},
-      { id: 5, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
-         followed: false, fullName: 'Fidan',   usersStatus:'goodbye', location:  "Ufa"},
-      { id: 6, photoUrl:'https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png',
-         followed: false, fullName: 'Vildan',  usersStatus:'I do not understand you', location:  "Ufa"},
+      // { id: 1, photos: userPhoto, followed: true, name: 'Aisy',    tatus:'hi, I miss you', location: "Ufa"},
+      // { id: 2, photos: userPhoto, followed: true, name: 'Ruslan',   tatus:'winter is coming', location:  "Ufa"},
+      // { id: 3, photos: userPhoto, followed: true, name: 'Vlad',    tatus:'hi, I need my phone', location:  "Ufa"},
+      // { id: 4, photos: userPhoto, followed: true, name: 'Zulf',    tatus:'Yo yo yo', location:  "Ufa"},
+      // { id: 5, photos: userPhoto, followed: false, name: 'Fidan',   tatus:'goodbye', location:  "Ufa"},
+      // { id: 6, photos: userPhoto, followed: false, name: 'Vildan',  tatus:'I do not understand you', location:  "Ufa"},
    ],
 
    
 };
 
 const usersReduce = (state = initialState, action) => {
-debugger
+
    switch (action.type) {
       case FOLLOW: {
       return  {...state, 
@@ -44,7 +38,9 @@ debugger
             } )
       }}
       case SET_USERS: {
-         return {...state, users: [ ...state.users, ...action.users]}
+         
+         return {...state, users:[...state.users, ...action.users],
+         }
 
       }
 
@@ -58,6 +54,6 @@ debugger
 
    export const unFollowACreator = (userId) => ({ type: UNFOLLOW, userId })
 
-   export const setUsersACreator = (userId) => ({ type: SET_USERS, userId })
+   export const setUsersACreator = (users) => ({ type: SET_USERS, users })
 
    export default usersReduce
